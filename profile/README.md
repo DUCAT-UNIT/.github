@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="DUCAT Protocol" src="https://raw.githubusercontent.com/ducatprotocol/.github/main/assets/banner.png">
+  <img alt="DUCAT Protocol" src="https://raw.githubusercontent.com/DUCAT-UNIT/.github/main/assets/banner.png">
 </p>
 
 <p align="center">

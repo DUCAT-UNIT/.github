@@ -67,28 +67,6 @@ If your collateral ratio drops below 135%, your vault becomes eligible for liqui
 
 ---
 
-## Quick Links
-
-| Resource | Description |
-|----------|-------------|
-| [📖 Documentation](https://docs.ducatprotocol.com) | Full protocol documentation |
-| [🚀 Launch App](https://app.ducatprotocol.com) | Start using DUCAT |
-| [📊 Protocol Stats](https://stats.ducatprotocol.com) | Live metrics and TVL |
-| [🏛️ Governance](https://docs.ducatprotocol.com/governance/governance) | Participate in protocol governance |
-
----
-
-## Repositories
-
-| Repository | Description |
-|------------|-------------|
-| [`ducat-sdk`](https://github.com/ducatprotocol/ducat-sdk) | Client SDK for building on DUCAT |
-| [`ducat-node`](https://github.com/ducatprotocol/ducat-node) | Validator node implementation |
-| [`ducat-contracts`](https://github.com/ducatprotocol/ducat-contracts) | Protocol contract specifications |
-| [`ducat-docs`](https://github.com/ducatprotocol/ducat-docs) | Documentation source |
-
----
-
 ## Get Involved
 
 **Run a Node** — Help secure the network by running a validator

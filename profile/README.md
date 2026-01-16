@@ -77,7 +77,6 @@ If your collateral ratio drops below 135%, your vault becomes eligible for liqui
 
 ---
 
-<details>
 <summary><h2>📋 Technical Specification</h2></summary>
 
 # DUCAT Protocol: Executive Summary
@@ -794,7 +793,6 @@ The DUCAT Protocol enables **Bitcoin-backed borrowing** through a decentralized,
 | **Validator** | A node operator that indexes protocol transactions, tracks asset balances, and enforces protocol rules. |
 | **Vault** | A Bitcoin transaction that locks collateral in a multi-signature contract, recording debt and price contracts on-chain. |
 
-</details>
 
 ---
 

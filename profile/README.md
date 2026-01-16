@@ -164,7 +164,7 @@ The protocol is governed by holders of the **DUCAT** token, who can propose and 
 DUCAT is a **meta-protocol** built on top of Bitcoin. It is an opt-in consensus layer where all protocol state is stored on the Bitcoin blockchain. Rather than creating a separate layer or chain, DUCAT uses standard Bitcoin transactions to:
 
 - Lock Bitcoin as collateral in a "vault" transaction.
-- Issue and track the UNIT stablecoin (using the Runes protocol).
+- Issue and track the UNIT stablecoin (using the [Runes](#glossary) protocol).
 - Record debt positions, price commitments, and protocol state on-chain.
 - Enable decentralized governance through token-based voting.
 
@@ -242,7 +242,7 @@ Alice receives 50,000 UNIT to use freely. As long as BTC stays above $67,500, he
 
 **How UNIT is Tracked:**
 
-UNIT uses the Runes protocol for basic on-chain accounting of alternative assets. This allows assets such as UNIT to be custodied and exchanged freely on the bitcoin blockchain.
+UNIT uses the [Runes](#glossary) protocol for basic on-chain accounting of alternative assets. This allows assets such as UNIT to be custodied and exchanged freely on the bitcoin blockchain.
 
 The DUCAT protocol extends Runes by creating an additonal layer of validation. This layer distinguishes between "active" and "reserve" (inactive) rune balances. Only properly issued UNIT is marked as active and recognized by validators as having value. Reserve UNIT is considered worthless.
 
@@ -449,7 +449,7 @@ Independent parties that:
 - Issue cryptographic **price contracts** with specific threshold prices
 - Release **liquidation keys** when the price threshold is breached
 
-Oracles use hash-locks to control liquidation paths. When the BTC price drops to a vault's liquidation threshold, the oracle releases the corresponding key, enabling guardians to execute the liquidation.
+Oracles use [hash-locks](#glossary) to control liquidation paths. When the BTC price drops to a vault's liquidation threshold, the oracle releases the corresponding key, enabling guardians to execute the liquidation.
 
 **Price Contract Lifecycle:**
 - Price contracts are **valid indefinitely** once created
@@ -506,7 +506,7 @@ The protocol has no built-in interest rate on UNIT debt (0%). However, participa
 
 ## How Vaults Work
 
-A **vault** is a Bitcoin transaction that locks collateral in a multi-signature contract. The vault records the debt balance, price contracts, and other metadata in an OP_RETURN output.
+A **vault** is a Bitcoin transaction that locks collateral in a multi-signature contract. The vault records the debt balance, price contracts, and other metadata in an [OP_RETURN](#glossary) output.
 
 ### Custody Model
 
@@ -560,7 +560,7 @@ All users must agree on the same **anchor contract**, which defines:
 
 The anchor contract can be amended through on-chain governance using the **DUCAT governance token**.
 
-**DUCAT** is managed similarly to UNIT: it uses the Runes protocol, is minted up-front, and requires a governance-controlled issuance process. To participate in governance, holders stake their DUCAT in a time-locked transaction—this proves commitment and prevents vote manipulation.
+**DUCAT** is managed similarly to UNIT: it uses the [Runes protocol](#glossary), is minted up-front, and requires a governance-controlled issuance process. To participate in governance, holders stake their DUCAT in a [time-locked](#glossary) transaction—this proves commitment and prevents vote manipulation.
 
 The anchor contract defines the requirements for proposals (how much DUCAT must be staked, how long the lock period lasts). Validators tabulate votes and automatically update protocol rules when proposals pass.
 

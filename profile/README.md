@@ -1,8 +1,6 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ducatprotocol/.github/main/assets/banner-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ducatprotocol/.github/main/assets/banner-light.png">
-  <img alt="DUCAT Protocol" src="https://raw.githubusercontent.com/ducatprotocol/.github/main/assets/banner-light.png">
-</picture>
+<p align="center">
+  <img alt="DUCAT Protocol" src="https://raw.githubusercontent.com/ducatprotocol/.github/main/assets/banner.png">
+</p>
 
 <p align="center">
   <strong>The first Bitcoin L1-native, decentralized stablecoin.</strong>

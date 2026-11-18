@@ -37,7 +37,7 @@ DUCAT is built for the 89%. For the holders who refuse to compromise. For those 
 
 ## What is DUCAT?
 
-**DUCAT** is a meta-protocol built directly on Bitcoin Layer 1. It enables users to borrow **UNIT**—a USD-pegged stablecoin—against their BTC as collateral, without ever giving up custody of their coins.
+**DUCAT** is a meta-protocol built directly on Bitcoin Layer 1. It enables users to borrow **UNIT**—a USD-pegged stablecoin—against their BTC as collateral, without ever giving up custody of their coins. DUCAT, the protocol’s planned governance token, will launch as an ERC-20 token.
 
 | | |
 |---|---|
@@ -71,7 +71,7 @@ If your collateral ratio drops below 135%, your vault becomes eligible for liqui
 
 **Become a Guardian** — Earn fees by co-signing vault transactions
 
-**Participate in Governance** — Stake DUCAT tokens and vote on protocol changes
+**Governance** — Learn about the [planned governance model](https://docs.ducatprotocol.com/governance/governance)
 
 **Build on DUCAT** — Integrate UNIT into your wallet, exchange, or application
 
@@ -533,21 +533,13 @@ All users must agree on the same **anchor contract**, which defines:
 - Asset definitions (UNIT parameters).
 - Protocol terms (collateral ratios, fees, etc.).
 
-The anchor contract can be amended through on-chain governance using the **DUCAT governance token**.
-
-**DUCAT** is managed similarly to UNIT: it uses the [Runes protocol](#glossary), is minted up-front, and requires a governance-controlled issuance process. To participate in governance, holders stake their DUCAT in a [time-locked](#glossary) transaction—this proves commitment and prevents vote manipulation.
-
-The anchor contract defines the requirements for proposals (how much DUCAT must be staked, how long the lock period lasts). Validators tabulate votes and automatically update protocol rules when proposals pass.
-
-Like UNIT, DUCAT reserves are distributed by the Foundation for issuance. The Foundation and DUCAT mint can themselves be replaced through governance, with validators ultimately controlling consensus.
-
-> *Note: The specific mechanism for distributing DUCAT tokens to end-users for governance participation is currently undefined and will be specified in a future protocol update.*
+DUCAT, the protocol’s planned governance token, will launch as an ERC-20 token. See the [Governance docs](https://docs.ducatprotocol.com/governance/governance) for the intended scope and current status.
 
 ### Asset Security
 
-- The full supply of UNIT (and DUCAT) is minted up-front, starting in "reserve" (inactive) status.
+- The full supply of UNIT is minted up-front, starting in "reserve" (inactive) status.
 - Only protocol-compliant issuance can activate reserve assets.
-- Validators track active vs. reserve balances for all protocol assets.
+- Validators track active and reserve UNIT balances.
 - Invalid issuance attempts remain in reserve (economically worthless).
 
 ### Vault Security
@@ -771,7 +763,7 @@ The DUCAT Protocol enables **Bitcoin-backed borrowing** through a decentralized,
 | **Anchor Contract** | A Bitcoin transaction that establishes the protocol's initial rules, authorized signers, and asset definitions. Identified by its transaction ID (txid). |
 | **Client** | An end-user who opens vaults, deposits Bitcoin collateral, and borrows UNIT. |
 | **Collateral Ratio** | The ratio of collateral value to debt value. Must stay above the liquidation threshold. |
-| **DUCAT** | The governance token used to propose and vote on protocol changes. Staked in time-locked transactions. |
+| **DUCAT** | The protocol’s planned ERC-20 governance token. |
 | **Guardian** | A protocol-approved entity that co-signs vault transactions, issues UNIT to clients from reserve allocations, and coordinates with oracles for price contracts. |
 | **Hash-lock** | A cryptographic lock that requires a specific secret value (preimage) to unlock. Oracles use hash-locks to control liquidation spending paths—the lock can only be opened when the oracle reveals the corresponding key. |
 | **Liquidation** | The process by which an under-collateralized vault is claimed by a liquidator who recapitalizes it. |
@@ -786,8 +778,8 @@ The DUCAT Protocol enables **Bitcoin-backed borrowing** through a decentralized,
 | **Foundation** | The protocol-elected entity managing reserve distribution, Treasury operations, and backstop functions. |
 | **Reserve (UNIT)** | UNIT that has been minted but not yet issued through a valid vault transaction. Economically inactive. |
 | **Active (UNIT)** | UNIT that has been properly issued through a vault transaction. Recognized by validators as valid. |
-| **Runes Protocol** | A token standard on Bitcoin that enables fungible tokens to be issued and transferred using standard Bitcoin transactions. DUCAT uses Runes for on-chain accounting of UNIT and DUCAT assets. |
-| **Time-lock** | A transaction that locks funds until a specified block height or timestamp. Used in DUCAT governance to stake tokens when proposing or voting on protocol changes. |
+| **Runes Protocol** | A token standard on Bitcoin that enables fungible tokens to be issued and transferred using standard Bitcoin transactions. The protocol uses Runes for on-chain accounting of UNIT. |
+| **Time-lock** | A transaction that locks funds until a specified block height or timestamp. |
 | **Treasury** | The pool of reserve assets and accumulated liquidation proceeds managed by the Foundation. |
 | **UNIT** | The USD-pegged stablecoin (1 UNIT = 1 USD) issued against Bitcoin collateral in vaults. |
 | **Validator** | A node operator that indexes protocol transactions, tracks asset balances, and enforces protocol rules. |

@@ -44,7 +44,7 @@ DUCAT is built for the 89%. For the holders who refuse to compromise. For those 
 | 🔒 **Self-Custodial** | Your keys, your coins. 2-of-2 multi-sig means no one can spend without you. |
 | ⛓️ **Bitcoin-Native** | No sidechains. No bridges. No wrapped tokens. Just Bitcoin. |
 | 🔍 **Fully Transparent** | All protocol state is recorded on-chain and independently verifiable. |
-| ⚡ **Permissionless** | Open liquidations, open participation, open governance. |
+| ⚡ **Permissionless** | Open liquidations and participation; token governance is planned. |
 
 ### How It Works
 
@@ -130,7 +130,7 @@ To maintain the stability of the UNIT/USD peg, vaults must remain over-collatera
 
 Liquidation is regulated using a hash-lock mechanism provided by a protocol-approved price oracle. When the target BTC/USD price is reached, the price oracle publishes a "liquidation key". Liquidators and vault guardians use this key to remove the lock and process the liquidation.
 
-The protocol is governed by holders of the **DUCAT** token, who can propose and vote on changes to protocol parameters, elect guardians and oracles, and direct the foundation responsible for protocol management.
+Planned **DUCAT** token governance may cover protocol parameters, guardian and oracle participation, and Foundation policy. Proposal, voting and activation mechanisms are not currently operational; see [Protocol Governance](#protocol-governance).
 
 ---
 
@@ -141,7 +141,6 @@ DUCAT is a **meta-protocol** built on top of Bitcoin. It is an opt-in consensus 
 - Lock Bitcoin as collateral in a "vault" transaction.
 - Issue and track the UNIT stablecoin (using the [Runes](#glossary) protocol).
 - Record debt positions, price commitments, and protocol state on-chain.
-- Enable decentralized governance through token-based voting.
 
 **Key Characteristics:**
 
@@ -150,7 +149,7 @@ DUCAT is a **meta-protocol** built on top of Bitcoin. It is an opt-in consensus 
 | **Bitcoin-Native** | All operations occur on the Bitcoin blockchain |
 | **No Bridges** | No wrapped tokens or cross-chain dependencies |
 | **Transparent** | Protocol state is fully verifiable on-chain |
-| **Self-Governing** | Rules can be updated through on-chain governance |
+| **Planned Governance** | Token-based governance is intended; voting and rule activation are not operational |
 
 The protocol is initialized through a bitcoin transaction called the **Anchor Contract**. This transaction publishes data that establishes the initial rules, authorized participants, and asset definitions. Validator nodes index this contract and all subsequent transactions to maintain a consistent view of the protocol state.
 
@@ -168,7 +167,7 @@ UNIT is a **USD-pegged stablecoin** backed by Bitcoin collateral, where **1 UNIT
 | **Liquidation Threshold** | 135% | Collateral ratio at which vault becomes liquid |
 | **Interest Rate** | 0% | No ongoing interest on UNIT debt |
 
-> *Note: These parameters are defined in the anchor contract and can be updated through governance.*
+> *Note: These parameters are defined in the selected anchor contract. Future governance may govern parameter changes; an operational voting and activation process has not been established.*
 
 **How UNIT is Created:**
 
@@ -326,13 +325,15 @@ The DUCAT protocol involves five types of participants:
                     - issuance & repayment
 ```
 
+*The DUCAT-holder election and control relationships in this diagram describe intended future governance, not operational capabilities.*
+
 **Key Relationships:**
 - **Foundation → Guardians**: Distributes reserve UNIT to guardians for issuance.
 - **Guardians → Oracles**: Provides info for price contract generation and breached contracts.
 - **Guardians ↔ Clients**: Co-sign vault transactions, issue active UNIT to clients.
 - **Oracles → Clients**: Publish price contracts and liquidation keys for vault transactions.
 - **Validators**: Observe all transactions, maintain consensus, validate asset states
-- **DUCAT Holders**: Elect Foundation and Guardians; set protocol terms for issuance, repayment and liquidation
+- **DUCAT Holders (planned)**: May govern Foundation and guardian participation and protocol terms for issuance, repayment and liquidation.
 
 ### Clients (Borrowers / Liquidators)
 
@@ -354,7 +355,7 @@ Protocol-approved entities that:
 - Coordinate with oracles (provide rate bucket info, notify of breached contracts).
 - Execute liquidations when price oracles release keys.
 
-Guardian public keys are listed in the anchor contract, and their eligibility is controlled by protocol governance. Guardians cannot unilaterally spend vault funds under normal operation.
+Guardian public keys are listed in the selected anchor contract. Future governance may govern guardian participation. Guardians cannot unilaterally spend vault funds under normal operation.
 
 **Multiple Guardian Support:**
 
@@ -435,7 +436,7 @@ Oracles use [hash-locks](#glossary) to control liquidation paths. When the BTC p
 
 Node operators that:
 - Index all protocol transactions from the anchor contract forward
-- Track asset balances, vault states, and governance decisions
+- Track asset balances and vault states
 - Provide clients with current protocol data
 - Enforce protocol rules through consensus
 
@@ -443,7 +444,7 @@ Validators determine which UNIT balances are considered "active" based on whethe
 
 ### Foundation
 
-The protocol-elected entity that performs management functions for the DUCAT protocol:
+The entity responsible for management functions in the selected protocol deployment; election through token governance is planned:
 
 **Core Responsibilities:**
 - **Reserve Distribution**: Allocating reserve UNIT to guardians (for issuance to clients).
@@ -454,15 +455,15 @@ The protocol-elected entity that performs management functions for the DUCAT pro
 
 **Authority and Accountability:**
 
-The Foundation can be a single signer or a multi-signature arrangement. While the Foundation has discretionary authority over reserve distribution and Treasury spending (including taking compensation for their services), they are accountable to governance token holders who can vote to replace them.
+The Foundation can be a single signer or a multi-signature arrangement. Its authority over reserve distribution and Treasury spending depends on the deployment. Accountability and replacement through token governance are intended future capabilities.
 
-**Foundation Replacement Mechanism:**
-- Governance can **freeze** existing reserve assets (preventing new issuance).
-- New reserve assets are minted and assigned to the replacement Foundation.
-- Liquidation profits redirect to the new Foundation's on-chain address.
-- Existing active UNIT in circulation is still valid and tracked by validators.
+**Intended Foundation Replacement Model (not operational through token governance):**
+- A future replacement mechanism would need to define how existing reserve assets become inactive to prevent new issuance.
+- The proposed model would assign newly minted reserve assets to the replacement Foundation.
+- The proposed model would redirect liquidation profits to the new Foundation's on-chain address.
+- The intended model preserves existing active UNIT; validator adoption and compatibility rules still need specification.
 
-> *Note: Previously accumulated Treasury funds remain with the outgoing Foundation.*
+> *Note: In this proposed model, previously accumulated Treasury funds remain with the outgoing Foundation. Governance voting does not itself move those funds.*
 
 ### Fee Structure
 
@@ -471,11 +472,11 @@ The protocol has no built-in interest rate on UNIT debt (0%). However, participa
 | Participant | Compensation Source | Details |
 |-------------|---------------------|---------|
 | **Foundation** | Treasury profits | Takes compensation from accumulated liquidation proceeds |
-| **Guardians** | Multiple sources | First-access to liquidations; optional direct client fees; optional cut of liquidation tax (governance-controlled) |
+| **Guardians** | Multiple sources | First-access to liquidations; optional direct client fees; optional cut of liquidation tax (subject to deployment policy) |
 | **Oracles** | Treasury (via Foundation) | Compensated by Foundation for providing price contract services |
 | **Validators** | None (public good) | Low resource requirements; incentive is trustless protocol visibility |
 
-> *Note: Guardian fees and liquidation tax distribution are controlled by governance and defined in the anchor contract.*
+> *Note: Guardian fees and liquidation tax distribution require defined deployment authority and accounting. Future governance may govern these policies; they cannot be inferred from anchor collateral parameters.*
 
 ---
 
@@ -533,7 +534,7 @@ All users must agree on the same **anchor contract**, which defines:
 - Asset definitions (UNIT parameters).
 - Protocol terms (collateral ratios, fees, etc.).
 
-DUCAT, the protocol’s planned governance token, will launch as an ERC-20 token. See the [Governance docs](https://docs.ducatprotocol.com/governance/governance) for the intended scope and current status.
+DUCAT, the protocol’s planned governance token, will launch as an ERC-20 token. See the [Governance docs](https://docs.ducatprotocol.com/governance/governance) for the intended scope and current status. Proposal submission, voting, counting and automatic rule activation are not currently operational. An ERC-20 transfer does not itself constitute a protocol vote.
 
 ### Asset Security
 
@@ -557,7 +558,7 @@ DUCAT, the protocol’s planned governance token, will launch as an ERC-20 token
 | Oracle accuracy | Use multiple oracles |
 | Validator consensus | Run your own validator |
 | No unilateral exit | Careful guardian selection |
-| Foundation stewardship | Governance can freeze reserves and elect replacement |
+| Foundation stewardship | Requires trust in the current Foundation; replacement through token governance is planned |
 
 ### Risks and Mitigations
 
@@ -584,7 +585,7 @@ However, they **cannot inflate the UNIT supply**—the supply is based on verifi
 | automatic eviction | If validators detect a malicious guardian or oracle, they can eject them from the protocol immediately |
 | Foundation as backstop | If collateral is stolen, foundation can provide capital to make vaults whole |
 
-Ultimately, governance must exercise care when electing guardians and oracles into the protocol.
+Guardian and oracle selection requires care under the deployment’s current authority. Election through token governance is planned.
 
 ---
 
@@ -725,7 +726,7 @@ This backstop function is critical during rapid price declines where cascading l
 - Independent operation from other participants
 
 **Serving as Foundation**
-- Elected by governance token holders
+- Selection depends on deployment authority; election by governance token holders is planned
 - Manage reserve UNIT distribution to guardians
 - Operate the Treasury for market stabilization and backstop
 - Compensation through Treasury allocation
@@ -775,7 +776,7 @@ The DUCAT Protocol enables **Bitcoin-backed borrowing** through a decentralized,
 | **Premium** | The collateral value above the 1:1 debt backing in a liquidated vault. Distributed between liquidator and Treasury. |
 | **Price Contract** | A cryptographic commitment from an oracle specifying a price threshold and associated liquidation key. |
 | **Rate Bucket** | A discrete collateral ratio level at which oracles pre-generate price contracts. |
-| **Foundation** | The protocol-elected entity managing reserve distribution, Treasury operations, and backstop functions. |
+| **Foundation** | The entity managing reserve distribution, Treasury operations, and backstop functions; election through token governance is planned. |
 | **Reserve (UNIT)** | UNIT that has been minted but not yet issued through a valid vault transaction. Economically inactive. |
 | **Active (UNIT)** | UNIT that has been properly issued through a vault transaction. Recognized by validators as valid. |
 | **Runes Protocol** | A token standard on Bitcoin that enables fungible tokens to be issued and transferred using standard Bitcoin transactions. The protocol uses Runes for on-chain accounting of UNIT. |
